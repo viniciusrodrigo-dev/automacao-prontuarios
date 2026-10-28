@@ -1,0 +1,33 @@
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+
+# Dados pessoais e documentos de trabalho
+entrada/
+saida/
+relatorios/
+revisao_funcionarios.xlsx
+lote_atual.json
+
+# Arquivos temporários
+*.tmp
+*.log
+~$*.docx
+~$*.xlsx
+
+# Configurações locais do VS Code
+.vscode/
+
+# Variáveis de ambiente e credenciais
+.env
+.env.*
+!.env.example
+
+# Sistema operacional
+Thumbs.db
+.DS_Store
