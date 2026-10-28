@@ -1,6 +1,7 @@
 from pathlib import Path
 from datetime import datetime, date
 import json
+import os
 from openpyxl import load_workbook
 
 from .preencher_capa import preencher_capa
@@ -9,7 +10,7 @@ from .relatorio import RelatorioProcessamento
 
 pasta_projeto = Path(__file__).resolve().parent.parent
 caminho_planilha = pasta_projeto / "revisao_funcionarios.xlsx"
-caminho_lote = pasta_projeto / "lote_atual.json"
+caminho_lote = Path(os.environ.get("caminho_lote", str(pasta_projeto / "lote_atual.json")))
 relatorio = RelatorioProcessamento(pasta_projeto)
 
 if not caminho_planilha.exists():

@@ -10,9 +10,12 @@ from .planilha_revisao import PlanilhaRevisao
 
 pasta_projeto = Path(__file__).resolve().parent.parent
 
-pasta_entrada = pasta_projeto / "entrada"
+pasta_entrada = Path(
+    os.environ.get("pasta_entrada", str(pasta_projeto / "entrada"))
+)
+
 pasta_idiomas = pasta_projeto / "tessdata"
-caminho_lote = pasta_projeto / "lote_atual.json"
+caminho_lote = Path(os.environ.get("caminho_lote", str(pasta_projeto / "lote_atual.json")))
 
 relatorio = RelatorioProcessamento(pasta_projeto)
 planilha_revisao = PlanilhaRevisao(pasta_projeto)

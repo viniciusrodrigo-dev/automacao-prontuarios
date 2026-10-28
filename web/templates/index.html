@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#080b12">
+    <meta name="description" content="Sistema de automação de prontuários e documentos administrativos.">
+
+    <title>Prontuário | Painel de Controle</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+
+<body>
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <a href="#" class="brand">
+                <div class="brand-icon">P</div>
+                <div class="brand-text">
+                    <strong>PRONTUÁRIO</strong>
+                    <span>AUTOMAÇÃO INTELIGENTE</span>
+                </div>
+            </a>
+
+            <div class="menu-label">MENU PRINCIPAL</div>
+
+            <nav class="navigation">
+                <a href="#inicio" class="nav-item active">
+                    <span class="nav-icon">▦</span>
+                    <span>Visão geral</span>
+                </a>
+
+                <a href="#processamento" class="nav-item">
+                    <span class="nav-icon">⇧</span>
+                    <span>Processamento</span>
+                </a>
+
+                <a href="#documentos" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    <span>Documentos</span>
+                </a>
+
+                <a href="#historico" class="nav-item">
+                    <span class="nav-icon">◷</span>
+                    <span>Histórico</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    <div>
+                        <strong>Sistema local</strong>
+                        <span>Interface em desenvolvimento</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-footer">
+                    <span>V7 DEV</span>
+                    <span>v1.0.0</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content" id="inicio">
+
+            <header class="topbar">
+                <div>
+                    <div class="breadcrumb">PAINEL / VISÃO GERAL</div>
+                    <h1>Painel de controle</h1>
+                    <p>Gerencie o processamento de prontuários em um só lugar.</p>
+                </div>
+
+                <div class="topbar-badge">
+                    <span class="status-dot"></span>
+                    Ambiente local
+                </div>
+            </header>
+
+            <section class="welcome-card">
+                <div class="welcome-content">
+                    <span class="eyebrow">CENTRAL DE OPERAÇÕES</span>
+
+                    <h2>Automatize tarefas.<br>
+                        <span>Ganhe produtividade.</span>
+                    </h2>
+
+                    <p>
+                        Processe formulários digitalizados, revise os dados
+                        extraídos e gere documentos de forma organizada.
+                    </p>
+
+                    <a href="#processamento" class="button button-primary">
+                        Iniciar operação <span>→</span>
+                    </a>
+                </div>
+
+                <div class="welcome-visual" aria-hidden="true">
+                    <div class="visual-ring ring-one"></div>
+                    <div class="visual-ring ring-two"></div>
+                    <div class="visual-core">
+                        <span>DOC</span>
+                        <strong>AI</strong>
+                    </div>
+                    <div class="visual-tag">OCR SYSTEM</div>
+                </div>
+            </section>
+
+            <section class="section-heading">
+                <div>
+                    <span class="eyebrow">MONITORAMENTO</span>
+                    <h2>Resumo da operação</h2>
+                </div>
+                <span class="live-badge">
+                    <span class="status-dot"></span>
+                    Dados demonstrativos
+                </span>
+            </section>
+
+            <section class="stats-grid">
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Funcionários processados</span>
+                        <span class="stat-icon">▤</span>
+                    </div>
+                    <strong class="stat-value" id="stat-processados">—</strong>
+                    <span class="stat-description">Aguardando integração</span>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Documentos gerados</span>
+                        <span class="stat-icon">✓</span>
+                    </div>
+                    <strong class="stat-value" id="stat-documentos">—</strong>
+                    <span class="stat-description">Aguardando integração</span>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span>Registros pendentes</span>
+                        <span class="stat-icon warning">!</span>
+                    </div>
+                    <strong class="stat-value" id="stat-pendencias">—</strong>
+                    <span class="stat-description">Aguardando integração</span>
+                </article>
+            </section>
+
+            <section class="operations-section" id="processamento">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">FLUXO DE TRABALHO</span>
+                        <h2>Operações rápidas</h2>
+                    </div>
+                </div>
+
+                <div class="operations-grid">
+                    <article class="operation-card">
+                        <div class="operation-icon">⇧</div>
+                        <h3>Processar PDFs</h3>
+                        <p>Selecione formulários digitalizados para iniciar a extração de dados.</p>
+
+                        <label for="pdf-input" class="button button-secondary">
+                            Selecionar arquivos
+                        </label>
+
+                        <input
+                            type="file"
+                            id="pdf-input"
+                            accept=".pdf,application/pdf"
+                            multiple
+                            hidden
+                        >
+
+                        <div id="selected-files" class="selected-files" aria-live="polite">
+                            Nenhum arquivo selecionado.
+                        </div>
+                    </article>
+
+                    <article class="operation-card">
+                        <div class="operation-icon">▤</div>
+                        <h3>Revisar funcionários</h3>
+                        <p>Confira os dados extraídos e identifique informações que precisam de correção.</p>
+
+                        <button class="button button-secondary" id="btn-revisar" type="button">
+                            Abrir revisão
+                        </button>
+                    </article>
+
+                    <article class="operation-card">
+                        <div class="operation-icon">↗</div>
+                        <h3>Gerar documentos</h3>
+                        <p>Gere capas de prontuário e declarações a partir dos dados revisados.</p>
+
+                        <button class="button button-primary" id="btn-gerar" type="button">
+                            Gerar documentos
+                        </button>
+                    </article>
+                </div>
+            </section>
+
+
+            <section class="review-section" id="revisao">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">CONFERÊNCIA DOS DADOS</span>
+                        <h2>Revisão de funcionários</h2>
+                        <p>Confira e corrija os campos antes de gerar os documentos.</p>
+                    </div>
+                    <span class="review-count" id="review-count">0 registros</span>
+                </div>
+                <div class="review-toolbar">
+                    <p id="review-message">Processe um lote e clique em “Abrir revisão”.</p>
+                    <button class="button button-secondary" id="btn-salvar-revisao" type="button" disabled>Salvar correções</button>
+                </div>
+                <div class="review-table-wrap">
+                    <table class="review-table">
+                        <thead><tr>
+                            <th>PDF / página</th><th>Nome</th><th>Data de admissão</th><th>Cargo</th><th>Unidade / projeto</th><th>Status</th>
+                        </tr></thead>
+                        <tbody id="tabela-funcionarios">
+                            <tr><td colspan="6" class="empty-row">Nenhum dado carregado.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <style>
+                .review-section{margin-top:32px;padding:24px;background:#101622;border:1px solid #253248;border-radius:16px}
+                .review-section .section-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+                .review-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:16px 0}
+                .review-toolbar p{color:#a9b5c8;margin:0}
+                .review-count{color:#65c9ff;background:#14283a;padding:8px 12px;border-radius:20px;font-size:13px}
+                .review-table-wrap{width:100%;overflow:auto;border:1px solid #253248;border-radius:10px}
+                .review-table{width:100%;min-width:900px;border-collapse:collapse}
+                .review-table th,.review-table td{padding:12px;text-align:left;border-bottom:1px solid #253248;vertical-align:top}
+                .review-table th{background:#151f2e;color:#9eafc6;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+                .review-table td{color:#dce5f2}
+                .review-table input{width:100%;min-width:130px;padding:9px;background:#0b111b;border:1px solid #34445b;border-radius:6px;color:#f1f5fb;font:inherit}
+                .review-table input:focus{outline:1px solid #45baff;border-color:#45baff}
+                .review-table .source-cell{min-width:130px;color:#9eafc6;font-size:13px}
+                .review-table .status-cell{font-size:12px;white-space:nowrap}
+                .review-table .empty-row{text-align:center;color:#9eafc6;padding:24px}
+                #btn-salvar-revisao:disabled{opacity:.5;cursor:not-allowed}
+            </style>
+
+            <section class="activity-section" id="historico">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">ACOMPANHAMENTO</span>
+                        <h2>Status do processamento</h2>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-indicator"></div>
+                        <div>
+                            <strong id="status-title">Sistema pronto para integração</strong>
+                            <p id="status-message" role="status" aria-live="polite">
+                                A interface está pronta. O backend Python ainda não foi conectado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="progress-track">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+
+                    <div class="activity-footer">
+                        <span id="progress-label">Aguardando operação</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <span>PRONTUÁRIO <span class="footer-accent">/</span> AUTOMAÇÃO</span>
+                <span>Desenvolvido por V7 DEV</span>
+            </footer>
+
+        </main>
+    </div>
+</body>
+</html>
