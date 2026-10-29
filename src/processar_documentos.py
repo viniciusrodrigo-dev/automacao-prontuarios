@@ -2,6 +2,7 @@ from pathlib import Path
 import json
 import os
 import pytesseract
+import time
 from pdf2image import convert_from_path
 
 from .extrair_dados import extrair_dados
@@ -45,7 +46,9 @@ for arquivo_pdf in arquivos_pdf:
     print(f"Processando: {arquivo_pdf.name}")
     try:
         paginas = convert_from_path(
-            str(arquivo_pdf), dpi=300, poppler_path=str(pasta_poppler)
+            str(arquivo_pdf), dpi=250,
+            poppler_path=str(pasta_poppler),
+            thread_count=2
         )
     except Exception as erro:
         print(f"Erro ao abrir o PDF: {erro}")
@@ -57,8 +60,20 @@ for arquivo_pdf in arquivos_pdf:
 
     for numero, pagina in enumerate(paginas, start=1):
         dados = {}
+        inicio_ocr = time.perf_counter()
+
         try:
-            texto = pytesseract.image_to_string(pagina, lang="por")
+            texto = pytesseract.image_to_string(
+                pagina,
+                lang="por"
+            )
+
+            tempo_ocr = time.perf_counter() - inicio_ocr
+
+            print(
+                f"  Página {numero}: OCR concluído "
+                f"em {tempo_ocr:.2f} segundos."
+            )
             if texto.strip():
                 dados = extrair_dados(texto)
 
