@@ -42,6 +42,14 @@ def extrair_dados(texto):
             dados["nome"] = linha.split(":", 1)[1].strip()
             nome_encontrado = True
 
+        # Novo modelo: "INFORMAÇÕES: NOME COMPLETO".
+        # A regra só é aplicada quando a linha contém esse rótulo.
+        elif re.match(r"^informa\w*\s*:\s*.+$", linha_minuscula):
+            nome = linha.split(":", 1)[1].strip()
+            if nome:
+                dados["nome"] = nome
+                nome_encontrado = True
+
         # -----------------------------
         # DATA DE ADMISSÃO
         # -----------------------------
