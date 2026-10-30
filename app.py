@@ -333,7 +333,7 @@ def gerar_documentos():
         "sucesso": True,
         "mensagem": "Geração concluída.",
         "detalhes": detalhes[-5000:]
-    })
+    }) 
 
 @app.errorhandler(413)
 def arquivo_muito_grande(erro):

@@ -1,78 +1,99 @@
 # Automação de Prontuários
 
-Aplicação desenvolvida em Python para automatizar etapas do processamento de documentos de admissão de funcionários.
+Aplicação web desenvolvida em Python para automatizar o processamento de documentos admissionais, utilizando OCR para extrair informações de PDFs e gerar documentos Word a partir de modelos predefinidos.
+
+## Sobre o Projeto
+
+O projeto busca reduzir tarefas manuais no preenchimento de prontuários de funcionários, tornando o processo mais organizado e eficiente.
+
+A aplicação permite enviar documentos digitalizados, extrair dados automaticamente, revisar as informações identificadas e gerar documentos preenchidos.
 
 ## Funcionalidades
 
-- Leitura de PDFs digitalizados utilizando OCR.
-- Extração de nome, data de admissão, cargo e unidade.
-- Identificação de unidades por meio de uma lista oficial.
-- Registro dos dados extraídos em planilha Excel para revisão.
-- Identificação de campos pendentes.
-- Geração automatizada de capas de prontuário e declarações em Word.
-- Registro dos resultados do processamento.
+- **Processamento de PDFs:** leitura de documentos digitalizados.
+- **Extração de dados com OCR:** identificação de nome, data de admissão, cargo e unidade de trabalho.
+- **Revisão de informações:** visualização e correção dos dados extraídos.
+- **Integração com Excel:** armazenamento e atualização dos registros.
+- **Geração de documentos:** preenchimento automatizado de capas de prontuários e declarações de alimentação em Word.
+- **Relatórios:** registro dos resultados do processamento.
+- **Interface web:** gerenciamento do fluxo por meio de uma aplicação Flask.
 
 ## Tecnologias
 
-- Python
-- Tesseract OCR
-- PyTesseract
-- pdf2image
-- Poppler
-- Microsoft Word
-- python-docx
-- openpyxl
+| Tecnologia | Finalidade |
+|---|---|
+| Python | Lógica e automação |
+| Flask | Aplicação web |
+| Tesseract OCR | Reconhecimento de texto |
+| pytesseract | Integração entre Python e OCR |
+| OpenPyXL | Manipulação de planilhas Excel |
+| Microsoft Word | Geração de documentos |
+| pywin32 | Automação do Word no Windows |
+| Poppler | Processamento de PDFs |
+| HTML, CSS e JavaScript | Interface web |
+| JSON | Armazenamento de informações dos lotes |
 
-## Estrutura do projeto
+## Fluxo de Funcionamento
 
-- `src/`: código-fonte da aplicação.
-- `ferramentas/`: scripts auxiliares.
-- `modelos/`: modelos de documentos utilizados na geração.
-- `entrada/`: PDFs utilizados no processamento local.
-- `saida/`: documentos gerados.
-- `relatorios/`: relatórios de processamento.
-- `tessdata/`: arquivos de idioma utilizados pelo Tesseract.
-- `testes/`: testes automatizados.
+1. Envio dos documentos PDF.
+2. Extração automática das informações por OCR.
+3. Revisão e correção dos dados identificados.
+4. Validação dos campos obrigatórios.
+5. Geração dos documentos Word.
+6. Registro dos resultados do processamento.
 
 ## Requisitos
 
-- Python compatível com as dependências do projeto.
-- Tesseract OCR instalado e configurado.
-- Poppler instalado e configurado.
-- Microsoft Word instalado para os recursos que utilizam automação do Word.
+- Windows
+- Python
+- Microsoft Word instalado
+- Tesseract OCR com suporte ao idioma português
+- Poppler configurado
+- Dependências Python do projeto
 
-## Instalação
+## Execução
 
-Clone o repositório e entre na pasta:
+Clone o repositório:
 
 ```bash
 git clone URL_DO_REPOSITORIO
 cd automacao-prontuarios
 ```
 
-Crie e ative um ambiente virtual e instale as dependências:
-
-```bash
-python -m venv .venv
-```
-
-No Windows PowerShell:
+Crie e ative um ambiente virtual:
 
 ```powershell
+python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
 ```
 
-Configure os caminhos locais do Tesseract e do Poppler conforme as instruções do projeto.
+Instale as dependências, caso o arquivo `requirements.txt` esteja disponível:
 
-## Execução
+```bash
+python -m pip install -r requirements.txt
+```
 
-Os comandos de execução serão documentados após a consolidação da interface e dos pontos de entrada da aplicação.
+Inicie a aplicação:
 
-## Privacidade
+```bash
+python app.py
+```
 
-Este projeto pode processar documentos que contêm dados pessoais. Arquivos reais de funcionários, planilhas preenchidas e documentos gerados não devem ser publicados no repositório.
+**Nota:** configure os caminhos do Tesseract e do Poppler conforme o ambiente de instalação. A execução também depende dos modelos Word e dos arquivos de configuração necessários.
+
+## Segurança
+
+Os documentos processados podem conter dados pessoais. Utilize informações fictícias em demonstrações e evite publicar PDFs, planilhas ou documentos reais de funcionários no repositório.
 
 ## Status
 
-Projeto em desenvolvimento.
+🚧 **Projeto em desenvolvimento.**
+
+## Autor
+
+**Vinicius Rodrigo**
+
+Estudante de Engenharia de Software, interessado em desenvolvimento de software, Python e automação de processos.
+
+- GitHub: [Perfil do GitHub](https://github.com/viniciusrodrigo-dev)
+- LinkedIn: [Perfil do LinkedIn](https://www.linkedin.com/in/vini-silva-dev/)
